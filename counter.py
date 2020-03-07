@@ -29,7 +29,7 @@ class Counter(object):
             self.print_count = self._print_count_newline
         
     def run(self):
-        self.count += self.steps
+        self.count += self.step
         if self.mod:
             if self.count % self.mod == 0:
                 self.print_count()
