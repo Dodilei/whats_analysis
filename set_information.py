@@ -11,7 +11,7 @@ import _pickle as pk
 
 # Set the owner's name (regex and default)
 owner = ""
-_myname_regex = _myname_regex.replace(".", "\\.")
+_myname_regex = owner.replace(".", "\\.")
 
 # Set a template to identify message starts
 _header_pattern = "\n\d{1,2}/\d{1,2}/\d{1,2}, \d{2}:\d{2} - "
