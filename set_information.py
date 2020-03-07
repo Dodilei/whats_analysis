@@ -37,6 +37,6 @@ Chat._header_pattern = _header_pattern
 Chat.me_regex = _myname_regex
 Chat.owner = owner
 Chat._custom_trash_input = _custom_trash_input
-Cat.Large = Large
+Cat._Large(Large)
 Chat.symbols_range(symbols_range)
 Chat._lists(_whitelist, _darklist)
