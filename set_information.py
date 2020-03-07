@@ -29,10 +29,14 @@ symbols_range = set(pk.load(open(path+"/resources/unicode symbols/emoji_list.obj
 # Set to True if you want to analyse large messages manually
 _custom_trash_input = True
 
+# List to keep track of large messages
+Large = []
+
 # Set Chat class variables
 Chat._header_pattern = _header_pattern
 Chat.me_regex = _myname_regex
 Chat.owner = owner
 Chat._custom_trash_input = _custom_trash_input
+Cat.Large = Large
 Chat.symbols_range(symbols_range)
 Chat._lists(_whitelist, _darklist)
