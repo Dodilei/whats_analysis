@@ -9,8 +9,26 @@ Created on Sun Jan 19 14:08:02 2020
 from chat import Chat
 import _pickle as pk
 
+# If wanted, set the information needed with this function
+def set_information(**mapping):
+  
+  if mapping == {}:
+
+    inp = input("Do you want to set information?([y]/n)\n")
+    while inp != "n":
+      info = input("info name: ")
+      mapping[info] = input("value: ")
+      inp = input("Next?([y]/n)\n")
+  
+  for info in mapping.keys():
+    if info == "owner": owner == mapping[info]
+    elif info == "header_pattern": _header_pattern == mapping[info]
+    elif info == "path": path == mapping[info]
+    elif info == "custom_trash_input": _custom_trash_input = mapping[info]
+
 # Set the owner's name (regex and default)
 owner = ""
+if owner = "": set_information()
 _myname_regex = owner.replace(".", "\\.")
 
 # Set a template to identify message starts
@@ -40,22 +58,5 @@ Chat._custom_trash_input = _custom_trash_input
 Chat._Large(Large)
 Chat.symbols_range(symbols_range)
 Chat._lists(_whitelist, _darklist)
-
-# If wanted, set the information needed with this function
-def set_information(**mapping):
-  
-  if mapping == {}:
-
-    inp = input("Do you want to set information?([y]/n)\n")
-    while inp != "n":
-      info = input("info name: ")
-      mapping[info] = input("value: ")
-      inp = input("Next?([y]/n)\n")
-  
-  for info in mapping.keys():
-    if info == "owner": owner == mapping[info]
-    elif info == "header_pattern": _header_pattern == mapping[info]
-    elif info == "path": path == mapping[info]
-    elif info == "custom_trash_input": _custom_trash_input = mapping[info]
    
 
