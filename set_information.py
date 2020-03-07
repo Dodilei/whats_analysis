@@ -17,7 +17,7 @@ _myname_regex = owner.replace(".", "\\.")
 _header_pattern = "\n\d{1,2}/\d{1,2}/\d{1,2}, \d{2}:\d{2} - "
 
 # Set the path to the project
-path = r"/"
+path = r""
 
 # Set the paths for darklist and whitelist
 _darklist = path+"/resources/darklist.txt"
