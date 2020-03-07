@@ -17,8 +17,6 @@ class Chat(object):
 	me_regex = None
 	owner = None
 	_header_pattern = None
-  
-  Large = None
 	
 	_custom_trash_input = False
 	_lists = False
@@ -34,6 +32,10 @@ class Chat(object):
 		_lists = True
 		Message._whitelist = w
 		Message._darklist = d
+	
+	@staticmethod
+	def _Large(l):
+		Message.Large = l
 	
 		
 	# Methods that return arrays for dataframe
