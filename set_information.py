@@ -11,7 +11,7 @@ import _pickle as pk
 
 # If wanted, set the information needed with this function
 def set_information(**mapping):
-  
+  global owner, path, _custom_trash_input
   if mapping == {}:
 
     inp = input("Do you want to set information?([y]/n)\n")
@@ -65,4 +65,3 @@ Chat._Large(Large)
 Chat.symbols_range(symbols_range)
 Chat._lists(_whitelist, _darklist)
    
-
