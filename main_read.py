@@ -14,7 +14,6 @@ import _pickle as pk
 
 # Imports and sets all needed information (see set_information.py)
 import set_information as i
-i.set_information()
 
 print("Importing Files")
 # Import chats and it's names
