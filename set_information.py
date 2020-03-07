@@ -44,7 +44,7 @@ Chat._lists(_whitelist, _darklist)
 # If wanted, set the information needed with this function
 def set_information(**mapping):
   
-  if mapping == None:
+  if mapping == {}:
     mapping = {}
     inp = input("Do you want to set information?([y]/n)\n")
     while inp != "n":
