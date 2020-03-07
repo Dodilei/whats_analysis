@@ -48,7 +48,8 @@ def set_information(**mapping):
 
     inp = input("Do you want to set information?([y]/n)\n")
     while inp != "n":
-      mapping[input("info name: ")] = input("value: ")
+      info = input("info name: ")
+      mapping[info] = input("value: ")
       inp = input("Next?([y]/n)\n")
   
   for info in mapping.keys():
