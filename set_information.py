@@ -28,7 +28,7 @@ def set_information(**mapping):
 
 # Set the owner's name (regex and default)
 owner = ""
-if owner = "": set_information()
+if owner == "": set_information()
 _myname_regex = owner.replace(".", "\\.")
 
 # Set a template to identify message starts
