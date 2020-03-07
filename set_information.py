@@ -35,7 +35,10 @@ _myname_regex = owner.replace(".", "\\.")
 _header_pattern = "\n\d{1,2}/\d{1,2}/\d{1,2}, \d{2}:\d{2} - "
 
 # Set the path to the project
-path = r"."
+try:
+  path
+except NameError:
+  path = r"."
 
 # Set the paths for darklist and whitelist
 _darklist = path+"/resources/darklist.txt"
@@ -45,7 +48,10 @@ _whitelist = path+"/resources/whitelist.txt"
 symbols_range = set(pk.load(open(path+"/resources/unicode symbols/emoji_list.obj", "rb")))
 
 # Set to True if you want to analyse large messages manually
-_custom_trash_input = True
+try:
+  _custom_trash_input
+except NameError:
+  _custom_trash_input = True
 
 # List to keep track of large messages
 Large = []
