@@ -10,8 +10,8 @@ from chat import Chat
 import _pickle as pk
 
 # Set the owner's name (regex and default)
-_myname_regex = "Maurício M\. A\."
-owner = _myname_regex.replace("\\", "")
+owner = ""
+_myname_regex = _myname_regex.replace(".", "\\.")
 
 # Set a template to identify message starts
 _header_pattern = "\n\d{1,2}/\d{1,2}/\d{1,2}, \d{2}:\d{2} - "
@@ -40,3 +40,13 @@ Chat._custom_trash_input = _custom_trash_input
 Cat._Large(Large)
 Chat.symbols_range(symbols_range)
 Chat._lists(_whitelist, _darklist)
+
+# If wanted, set the information needed with this function
+def set_information(**mapping):
+  for info in mapping.keys():
+    if info == "owner": owner == mapping[info]
+    elif info == "header_pattern": _header_pattern == mapping[info]
+    elif info == "path": path == mapping[info]
+    elif info == "custom_trash_input": _custom_trash_input = mapping[info]
+   
+
