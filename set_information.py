@@ -21,9 +21,9 @@ def set_information(**mapping):
       inp = input("Next?([y]/n)\n")
   
   for info in mapping.keys():
-    if info == "owner": owner == mapping[info]
-    elif info == "header_pattern": _header_pattern == mapping[info]
-    elif info == "path": path == mapping[info]
+    if info == "owner": owner = mapping[info]
+    elif info == "header_pattern": _header_pattern = mapping[info]
+    elif info == "path": path = mapping[info]
     elif info == "custom_trash_input": _custom_trash_input = mapping[info]
 
 # Set the owner's name (regex and default)
