@@ -43,6 +43,14 @@ Chat._lists(_whitelist, _darklist)
 
 # If wanted, set the information needed with this function
 def set_information(**mapping):
+  
+  if mapping == None:
+    mapping = {}
+    inp = input("Do you want to set information?([y]/n)\n")
+    while inp != "n":
+      mapping[input("info name: ")] = input("value: ")
+      inp = input("Next?([y]/n)\n")
+  
   for info in mapping.keys():
     if info == "owner": owner == mapping[info]
     elif info == "header_pattern": _header_pattern == mapping[info]
