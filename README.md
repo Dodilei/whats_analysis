@@ -1,7 +1,7 @@
 # whats_analysis
 Read and analyse Whatsapp chats
 
-# 0. Prerequisites
+## 0. Prerequisites
 
 All chat .txt files must be placed inside the Chat folder (to get them, use the "export chat" option from whatsapp)
 
@@ -13,12 +13,11 @@ Some manual arrangements can improve code functionality and the readability of t
 When the code starts, it'll ask you for information. In the default environment, the only information needed is your name:
 Write as follows:
 > info name: owner
-
-> value: YOUR_NAME*
+value: YOUR_NAME*
 
 * Your name must be written exactly like it is in your whatsapp account. To be certain, check how it is displayed inside the chat txt files.
 
-# 1. Import, read and process chats
+## 1. Import, read and process chats
 
 The first file to run is "main_read.py".
 This code will open all chat files, get their raw text and name and store in a list.
@@ -53,14 +52,17 @@ As of now, the code collects the following information:
   - Word count and list (if default text)
   
 
-# 2. Organize and store data
+## 2. Organize and store data
 
 The "main_data.py" file will get the data processed by "main_read.py" and organize it in a Pandas dataframe with all desired features.
 
 
-# 3. Data display
+## 3. Data display
 
 Work in progress.
+
+
+______________________________________________________________________________
 
 _documentation will be created in the future_
 
