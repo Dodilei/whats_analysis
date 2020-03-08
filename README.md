@@ -13,9 +13,9 @@ Some manual arrangements can improve code functionality and the readability of t
 
 # 1. Import, read and process chats
 
-The first file to run is "main_read.py"
-This code will open all chat files, get their raw text and name and store in a list
-This list is then used to create a dictionary which maps the names to the Chat objects
+The first file to run is "main_read.py".
+This code will open all chat files, get their raw text and name and store in a list.
+This list is then used to create a dictionary which maps the names to the Chat objects.
 
 Chat objects (from the Chat class) are created with only the name and raw text, the class itself handles the message recognition and creation of Message objects.
 Message objects are created with a header and raw text (from a single message), the class itself handles message classification and getting other relevant information.
@@ -53,7 +53,7 @@ The "main_data.py" file will get the data processed by "main_read.py" and organi
 
 # 3. Data display
 
-Work in progress
+Work in progress.
 
 _documentation will be created in the future_
 
