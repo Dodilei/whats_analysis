@@ -20,7 +20,7 @@ This list is then used to create a dictionary which maps the names to the Chat o
 Chat objects (from the Chat class) are created with only the name and raw text, the class itself handles the message recognition and creation of Message objects.
 Message objects are created with a header and raw text (from a single message), the class itself handles message classification and getting other relevant information.
 
-Currently the code collects the following information:
+As of now, the code collects the following information:
 
   For Chat objects:
   - Owner's name
