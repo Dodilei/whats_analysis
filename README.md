@@ -12,8 +12,8 @@ Some manual arrangements can improve code functionality and the readability of t
 
 When the code starts, it'll ask you for information. In the default environment, the only information needed is your name:
 Write as follows:
-> info name: owner
-value: YOUR_NAME*
+>\> info name: owner
+>\> value: YOUR_NAME*
 
 * Your name must be written exactly like it is in your whatsapp account. To be certain, check how it is displayed inside the chat txt files.
 
