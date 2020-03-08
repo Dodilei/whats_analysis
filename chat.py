@@ -38,7 +38,7 @@ class Chat(object):
 		Message.Large = l
 	
 	@staticmethod
-	def _Unidentified(u)?
+	def _Unidentified(u):
 		Message.Unidentified = u
 	
 	# Methods that return arrays for dataframe
