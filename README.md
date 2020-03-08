@@ -14,9 +14,9 @@ When the code starts, it'll ask you for information. In the default environment,
 Write as follows:
 >\> info name: owner
 
->\> value: YOUR_NAME*
+>\> value: YOUR_NAME
 
-* Your name must be written exactly like it is in your whatsapp account. To be certain, check how it is displayed inside the chat txt files.
+Your name must be written exactly like it is in your whatsapp account. To be certain, check how it is displayed inside the chat txt files.
 
 ## 1. Import, read and process chats
 
