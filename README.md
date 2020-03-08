@@ -10,7 +10,8 @@ Some manual arrangements can improve code functionality and the readability of t
 - Merge chats with the same person (especially when someone changes their phone number, don't forget to update all the names inside de text file)
 - Use clean, readable names (if a change is made, both the file name and all the entries in the text must be updated)
 
-When the code starts, it'll ask you for information. In the default environment, the only information needed is your name:
+When the code starts, it'll ask you for information. In the default environment, the only information needed is your name.
+
 Write as follows:
 >\> info name: owner
 
