@@ -234,13 +234,13 @@ class Chat(object):
 
 		for m in self.messages:
 			self.messages_dict[m._type].append(m)
-			
-			
-		# Get chat time information
-		self.start, self.end, self.duration = org.get_range(self, wreturn = "all")
+		
 		
 		# Get chat size
 		self.size = len(self.messages)
+			
+		# Get chat time information
+		self.start, self.end, self.duration = org.get_range(self, wreturn = "all")
 
 		# Size of only text messages
 		self.size_exclusive_t = len(
