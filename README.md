@@ -21,11 +21,12 @@ Your name must be written exactly like it is in your whatsapp account. To be cer
 ## 1. Import, read and process chats
 
 The first file to run is "main_read.py".
-This code will open all chat files, get their raw text and name and store in a list.
-This list is then used to create a dictionary which maps the names to the Chat objects.
+This will open all chat files, get their raw text and name, and store them in a list.
+This list is then used to create a dictionary, which maps the names to newly created Chat objects.
 
-Chat objects (from the Chat class) are created with only the name and raw text, the class itself handles the message recognition and creation of Message objects.
-Message objects are created with a header and raw text (from a single message), the class itself handles message classification and getting other relevant information.
+Chat objects (from the Chat class) are created with only a name and raw text. The class handles the message recognition and creation of Message objects.
+
+Message objects are created with a header and raw text (from a single message), the class itself handles message classification and gets other relevant information.
 
 As of now, the code collects the following information:
 
