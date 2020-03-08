@@ -29,6 +29,8 @@ Chat objects (from the Chat class) are created with only a name and raw text. Th
 
 Message objects are created with a header and raw text (from a single message), the class itself handles message classification and gets other relevant information.
 
+After all chats are processed, the dictionary is saved as a pickle obj for further use.
+
 As of now, the code collects the following information:
 
   For Chat objects:
