@@ -55,6 +55,8 @@ except NameError:
 
 # List to keep track of large messages
 Large = []
+# List to keep track of unidentified messages
+Unidentified = []
 
 # Set Chat class variables
 Chat._header_pattern = _header_pattern
@@ -62,6 +64,7 @@ Chat.me_regex = _myname_regex
 Chat.owner = owner
 Chat._custom_trash_input = _custom_trash_input
 Chat._Large(Large)
+Chat._Unidentified(Unidentified)
 Chat.symbols_range(symbols_range)
 Chat._lists(_whitelist, _darklist)
    
