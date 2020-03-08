@@ -37,7 +37,10 @@ class Chat(object):
 	def _Large(l):
 		Message.Large = l
 	
-		
+	@staticmethod
+	def _Unidentified(u)?
+		Message.Unidentified = u
+	
 	# Methods that return arrays for dataframe
 		
 	def _get_times(self):
