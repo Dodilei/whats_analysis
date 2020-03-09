@@ -16,8 +16,8 @@ import _pickle as pk
 import set_information as i
 
 print("Importing Files")
-# Import chats and it's names
 
+# Import chats and it's names
 # Creates a list with tupples in the shape (name, text)
 files = []
 for file in os.listdir("./Chats"):
