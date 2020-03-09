@@ -24,6 +24,7 @@ for file in os.listdir("./Chats"):
 	with open("./Chats/%s" % (file), encoding="utf-8") as file_obj:
 		files.append((file[19:-4], file_obj.read()))
 
+		
 #%% Classify chats and messages
 
 print("Reading chats\n\n")
