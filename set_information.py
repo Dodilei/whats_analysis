@@ -50,10 +50,9 @@ def reset_info():
 
 # Create user_data.obj file
 try:
-  open(path+"/resources/user_data.obj", "rb").close()
+  open("./resources/user_data.obj", "rb").close()
 except FileNotFoundError:
-  with open("./resources/user_data.obj", "wb+") as r:
-    pk.dump({}, r)
+  reset_info()
 
 # Set the owner's name (regex and default)
 try:
@@ -76,8 +75,16 @@ except NameError:
 _darklist = path+"/resources/darklist.txt"
 _whitelist = path+"/resources/whitelist.txt"
 
-d = open(_darklist, "w+")
-w = open(_whitelist, "w+")
+try:
+  d = open(_darklist, "r")
+except FileNotFoundError:
+  d = open(_darklist, "w+")
+  
+try:
+  w = open(_whitelist, "r")
+except FileNotFoundError:
+  w = open(_whitelist, "w+")
+  
 d.close()
 w.close()
 
