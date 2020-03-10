@@ -18,6 +18,11 @@ def set_info(ask = False, **mapping):
   
   global owner, path, _custom_trash_input
   
+  try:
+    mapping["owner"]
+  except KeyError:
+    ask = True
+    
   if ask:
     inp = input("Do you want to set information?([y]/n)\n")
     while inp != "n":
@@ -40,12 +45,12 @@ def reset_info():
   with open("./resources/user_data.obj", "wb") as r:
     pk.dump({}, r)
 
-
 # Set the owner's name (regex and default)
 try:
   owner
 except NameError:
-  path = r"."
+  set_info()
+  
 _myname_regex = owner.replace(".", "\\.")
 
 # Set a template to identify message starts

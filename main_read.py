@@ -22,8 +22,9 @@ print("Importing Files")
 # Creates a list with tupples in the shape (name, text)
 files = []
 for file in os.listdir("./Chats"):
-	with open("./Chats/%s" % (file), encoding="utf-8") as file_obj:
-		files.append((file[19:-4], file_obj.read()))
+    if file[0:13] == "WhatsApp Chat":
+     	with open("./Chats/%s" % (file), encoding="utf-8") as file_obj:
+     		files.append((file[19:-4], file_obj.read()))
 
 		
 #%% Classify chats and messages
