@@ -45,7 +45,14 @@ def set_info(ask = False, **mapping):
 def reset_info():
   # Reset user_data file
   
-  with open("./resources/user_data.obj", "wb") as r:
+  with open("./resources/user_data.obj", "wb+") as r:
+    pk.dump({}, r)
+
+# Create user_data.obj file
+try:
+  open(path+"/resources/user_data.obj", "rb").close()
+except FileNotFoundError:
+  with open("./resources/user_data.obj", "wb+") as r:
     pk.dump({}, r)
 
 # Set the owner's name (regex and default)
@@ -65,9 +72,14 @@ try:
 except NameError:
   path = r"."
 
-# Set the paths for darklist and whitelist
+# Create and set the paths for darklist and whitelist
 _darklist = path+"/resources/darklist.txt"
 _whitelist = path+"/resources/whitelist.txt"
+
+d = open(_darklist, "w+")
+w = open(_whitelist, "w+")
+d.close()
+w.close()
 
 # Creates a set with relevant unicode symbols
 symbols_range = set(pk.load(open(path+"/resources/unicode symbols/emoji_list.obj", "rb")))
