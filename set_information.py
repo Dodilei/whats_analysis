@@ -19,16 +19,24 @@ def set_information(**mapping):
       info = input("info name: ")
       mapping[info] = input("value: ")
       inp = input("Next?([y]/n)\n")
-  
+
   for info in mapping.keys():
     if info == "owner": owner = mapping[info]
     elif info == "header_pattern": _header_pattern = mapping[info]
     elif info == "path": path = mapping[info]
     elif info == "custom_trash_input": _custom_trash_input = mapping[info]
+    
+  with open("./resources/user_data.obj", "wb") as r:
+    pk.dump(mapping, r)
+
+def reset_info():
+  with open("./resources/user_data.obj", "wb") as r:
+    pk.dump({}, r)
 
 # Set the owner's name (regex and default)
 owner = ""
-if owner == "": set_information()
+with open("./resources/user_data.obj", "rb") as r:
+  if owner == "": set_information(**pk.load(r))
 _myname_regex = owner.replace(".", "\\.")
 
 # Set a template to identify message starts
