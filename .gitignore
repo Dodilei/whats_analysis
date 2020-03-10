@@ -10,3 +10,6 @@
 /large/*
 !/large/empty.txt
 
+/resources/*
+!/resources/message_types.txt
+!/resources/unicode\ symbols
