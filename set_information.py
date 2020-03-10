@@ -16,15 +16,18 @@ def set_info(ask = False, **mapping):
   with open("./resources/user_data.obj", "rb") as r:
     mapping = pk.load(r)
   
-  global owner, path, _custom_trash_input
+  global owner, path, _custom_trash_input, _header_pattern
   
   try:
     mapping["owner"]
   except KeyError:
-    ask = True
+    print("info name: owner")
+    mapping["owner"] = input("value: ")
     
   if ask:
+  
     inp = input("Do you want to set information?([y]/n)\n")
+    
     while inp != "n":
       info = input("info name: ")
       mapping[info] = input("value: ")
