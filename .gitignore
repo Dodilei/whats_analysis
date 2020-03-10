@@ -1,4 +1,12 @@
 /__pycache__
 /.spyproject
+
 /Chats/*.txt
 !/Chats/empty.txt
+
+/results/*
+!/results/empty.txt
+
+/large/*
+!/large/empty.txt
+
