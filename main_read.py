@@ -14,6 +14,7 @@ import _pickle as pk
 
 # Imports and sets all needed information (see set_information.py)
 import set_information as i
+i.set_info(ask = True)
 
 print("Importing Files")
 
