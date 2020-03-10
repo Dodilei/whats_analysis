@@ -57,7 +57,7 @@ As of now, the code collects the following information:
   - Word count and list (if default text)
   
 
-## 2. Organize and store data (code not yet in git)
+## 2. Organize and store data
 
 The "main_data.py" file will get the data processed by "main_read.py" and organize it in a Pandas dataframe with all desired features.
 
