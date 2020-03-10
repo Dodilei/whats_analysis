@@ -10,10 +10,15 @@ from chat import Chat
 import _pickle as pk
 
 # If wanted, set the information needed with this function
-def set_information(**mapping):
-  global owner, path, _custom_trash_input
-  if mapping == {}:
+def set_info(ask = False, **mapping):
+  # Get previous added info and/or ask for user input
 
+  with open("./resources/user_data.obj", "rb") as r:
+    mapping = pk.load(r)
+  
+  global owner, path, _custom_trash_input
+  
+  if ask:
     inp = input("Do you want to set information?([y]/n)\n")
     while inp != "n":
       info = input("info name: ")
@@ -30,13 +35,17 @@ def set_information(**mapping):
     pk.dump(mapping, r)
 
 def reset_info():
+  # Reset user_data file
+  
   with open("./resources/user_data.obj", "wb") as r:
     pk.dump({}, r)
 
+
 # Set the owner's name (regex and default)
-owner = ""
-with open("./resources/user_data.obj", "rb") as r:
-  if owner == "": set_information(**pk.load(r))
+try:
+  owner
+except NameError:
+  path = r"."
 _myname_regex = owner.replace(".", "\\.")
 
 # Set a template to identify message starts
