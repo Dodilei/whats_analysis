@@ -8,14 +8,6 @@ Created on Sun Jan 19 13:56:29 2020
 
 import pandas as pd
 
-# not being used
-def analyse_chat(tup):
-
-    from chat import Chat
-
-    return {tup[0]:Chat(*tup)}
-
-
 def get_chats(dataframe, chat_name, return_as_dict = False):
     
     if type(chat_name) == str:
