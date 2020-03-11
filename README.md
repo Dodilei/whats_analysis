@@ -89,7 +89,7 @@ _documentation will be created in the future_
 
 _visualizing the data is the last part of the project and currently being improved_
 
-*group chats are not currently supported*
+*group chats and exported media are not currently supported*
 
 [//]: # (References go here)
 
