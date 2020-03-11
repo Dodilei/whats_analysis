@@ -8,22 +8,6 @@ Created on Sun Jan 19 13:56:29 2020
 
 import pandas as pd
 
-def get_range(chat, wreturn = None):
-    # Return the range of a chat (i.e. timespan)
-    
-    time = []
-    for m in chat.messages:
-        time.append(m.time)
-    first = min(time)
-    last = max(time)
-    
-    if wreturn == None:
-        return (first, last)
-    elif wreturn == "duration":
-        return last-first
-    elif wreturn == "all":
-        return (first, last, last-first)
-
 # not being used
 def analyse_chat(tup):
 
