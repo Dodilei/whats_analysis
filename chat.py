@@ -291,3 +291,19 @@ class Chat(object):
 
         for m in enc_msg:        
             self.raw = self.raw.replace(m, "")
+    
+    def get_range(self, wreturn = None):
+        # Return the range of a chat (i.e. timespan)
+
+        time = []
+        for m in self.messages:
+            time.append(m.time)
+        first = min(time)
+        last = max(time)
+
+        if wreturn == None:
+            return (first, last)
+        elif wreturn == "duration":
+            return last-first
+        elif wreturn == "all":
+            return (first, last, last-first)
