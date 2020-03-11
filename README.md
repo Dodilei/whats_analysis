@@ -79,6 +79,15 @@ The [`organize.py`][org] code provides some useful and flexible methods to adapt
 
 The methods and their uses are listed below:
 
+##### The `get_chats` method
+
+Given a dataframe, the function accepts a `chat_name` argument, which can be a string or a list:
++ If *chat_name* is a string, a dataframe with all entries from the single chat whose name the string identifies will be returned.
++ If *chat_name* is a list, the entries from all chats corresponding to the names in the list will be returned. The result can be returned either:
+  - as a dictionary mapping the names to dataframes of each chat if `return_as_dict = True`;
+  - or a single dataframe like the original one if `return_as_dict = False`.
+
+
 ~ _work in progress_
 
 
