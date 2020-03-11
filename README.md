@@ -91,7 +91,7 @@ _visualizing the data is the last part of the project and currently being improv
 
 *group chats are not currently supported*
 
-[//] # (References go here)
+[//]: # (References go here)
 
 [mr]: ./main_read.py ("main_read.py")
 [md]: ./main_data.py ("main_data.py")
