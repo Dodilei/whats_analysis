@@ -64,11 +64,11 @@ As of now, the code collects the following information:
 
 ## 2. Collect and store data
 
-The [`main_data.py`][md] file will get the data processed by `main_read.py` and organize it in a `Pandas` dataframe with all desired features.
+The [`main_data.py`][md] file will get the data processed by `main_read.py` and organize it in a _Pandas_ dataframe with all desired features.
 
 In section of the code, the pickle object with the chat's classification will be loaded and feeded into a function.
 
-This function (`full_dataframe()`, defined at [`create_dataframes.py`][cdf]) uses the methods defined in the `Chat` class to collect all the entries for each relevant feature (as listed above) as an array. Then, with `Pandas`, a dataframe is constructed with all the information. Each entry on the dataframe is a message from your chats, all chats are stored in a single datafame.
+This function (_full_dataframe()_, defined at [`create_dataframes.py`][cdf]) uses the methods defined in the _Chat class_ to collect all the entries for each relevant feature (as listed above) as an array. Then, with _Pandas_, a dataframe is constructed with all the information. Each entry on the dataframe is a message from your chats, all chats are stored in a single datafame.
 
 The program then saves the dataframe to a csv file.
 
