@@ -93,9 +93,9 @@ _visualizing the data is the last part of the project and currently being improv
 
 [//] # (References go here)
 
-[mr]: # (./main-read.py "main_read.py")
-[md]: # (./main_data.py "main_data.py")
-[chat]: # (./chat.py "Chat class definition")
-[msg]: # (./message.py "Message class definition")
-[org]: # (./organize.py "organize.py")
-[cdf]: # (./create_dataframes.py "full_dataframe method definition")
+[mr]: ./main_read.py ("main_read.py")
+[md]: ./main_data.py ("main_data.py")
+[chat]: ./chat.py ("Chat class definition")
+[msg]: ./message.py ("Message class definition")
+[org]: ./organize.py ("organize.py")
+[cdf]: ./create_dataframes.py ("full_dataframe method definition")
