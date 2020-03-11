@@ -26,13 +26,13 @@ obs: you can delete all `empty.txt` files, they are there just to assure the fol
 
 ## 1. Import, read and process chats
 
-The first file to run is `main_read.py`.
+The first file to run is [`main_read.py`][mr].
 This will open all chat files, get their raw text and name, and store them in a list.
 This list is then used to create a dictionary, which maps the names to newly created `Chat` objects.
 
-**Chat objects** (from the Chat class) are created with only a name and raw text. The class handles the message recognition and creation of Message objects.
+**Chat objects** (from the [Chat class][chat]) are created with only a name and raw text. The class handles the message recognition and creation of Message objects.
 
-**Message objects** are created with a header and raw text (from a single message), the class itself handles message classification and gets other relevant information.
+**Message objects** (from the [Message class][msg]) are created with a header and raw text (from a single message), the class itself handles message classification and gets other relevant information.
 
 After all chats are processed, the dictionary is saved as a pickle object for further use.
 
@@ -64,26 +64,23 @@ As of now, the code collects the following information:
 
 ## 2. Collect and store data
 
-The `main_data.py` file will get the data processed by `main_read.py` and organize it in a `Pandas` dataframe with all desired features.
+The [`main_data.py`][md] file will get the data processed by `main_read.py` and organize it in a `Pandas` dataframe with all desired features.
 
 In section of the code, the pickle object with the chat's classification will be loaded and feeded into a function.
 
-This function (`full_dataframe()`, defined at `create_dataframes.py`) uses the methods defined in the `Chat` class to collect all the entries for each relevant feature (as listed above) as an array. Then, with `Pandas`, a dataframe is constructed with all the information. Each entry on the dataframe is a message from your chats, all chats are stored in a single datafame.
+This function (`full_dataframe()`, defined at [`create_dataframes.py`][cdf]) uses the methods defined in the `Chat` class to collect all the entries for each relevant feature (as listed above) as an array. Then, with `Pandas`, a dataframe is constructed with all the information. Each entry on the dataframe is a message from your chats, all chats are stored in a single datafame.
 
 The program then saves the dataframe to a csv file.
 
 
 ## 3. Organize data
 
-The `organize.py` code provides some useful and flexible methods to adapt and reshape the full chat's dataframe.
+The [`organize.py`][org] code provides some useful and flexible methods to adapt and reshape the full chat's dataframe.
 
 The methods and their uses are listed below:
 
+~ _work in progress_
 
-
-## 3. Data display
-
-Work in progress.
 
 
 ______________________________________________________________________________
@@ -93,3 +90,12 @@ _documentation will be created in the future_
 _visualizing the data is the last part of the project and currently being improved_
 
 *group chats are not currently supported*
+
+[//] # (References go here)
+
+[mr]: # (./main-read.py "main_read.py")
+[md]: # (./main_data.py "main_data.py")
+[chat]: # (./chat.py "Chat class definition")
+[message]: # (./message.py "Message class definition")
+[org]: # (./organize.py "organize.py")
+[cdf]: # (./create_dataframes.py "full_dataframe method definition")
