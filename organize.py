@@ -36,7 +36,11 @@ def get_chats(dataframe, chat_name, return_as_dict = False):
 
 def get_columns(dataframe, features):
     
-    if type(features[0]) == list:
+    if type(features) == str:
+        
+        return dataframe[features].copy()
+    
+    elif type(features[0]) == list:
         
         lst_dataframes = []
         for lst_features in features:
@@ -44,10 +48,6 @@ def get_columns(dataframe, features):
         return lst_dataframes
     
     elif type(features[0]) == str:
-        
-        return dataframe[features].copy()
-    
-    elif type(features) == str:
         
         return dataframe[features].copy()
     
