@@ -109,6 +109,15 @@ Given a `dataframe`, the function accepts a `types` argument, wich can be a stri
 + If _types_ is a list of strings and _remove_ is false, a dataframe with all the entries whose types are in the _types_ list will be returned. If _remove_ is set to true, these entries will be removed from the resulting dataframe.
   - A *return_as_dict* argument can be set to _True_ so the result will be returned as a dictionary mapping each _type_ to a dataframe wich contains only entries from that type. This is not possible if _remove_ is also _True_.
   
+#### The `make_time_bins` method
+
+This method reshapes the dataframe so that the entries are gouped by a new time resolution. The default time resolution from WhatsApp is 1 minute.
+
+Given a `dataframe`, the function accepts:
+
++ A `bin_size` argument, wich specifies the new time resolution. This argument must be a tuple of two elements. The _second_ element specifies the unit of time, it can be: "minutes", "hours", "days", "weeks", "months" or "years". The _first_ element is a positive integer wich specifies the bin size, using the unit chosen.
+
++ A `combine` argument, if it is set to _False_ the dataframe size doesn't change, all the entries stay the same but with a new time identity. If it is _True_, all the entries corresponding to a single time bin will be merged.
 
 ~ _work in progress_
 
