@@ -7,8 +7,6 @@ Created on Tue Dec  31 08:48:15 2019
 
 import re
 
-import organize as org
-
 from message import Message
 
 
@@ -240,7 +238,7 @@ class Chat(object):
         self.size = len(self.messages)
             
         # Get chat time information
-        self.start, self.end, self.duration = org.get_range(self, wreturn = "all")
+        self.start, self.end, self.duration = self.get_range(wreturn = "all")
 
         # Size of only text messages
         self.size_exclusive_t = len(
