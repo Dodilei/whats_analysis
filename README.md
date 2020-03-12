@@ -81,12 +81,32 @@ The methods and their uses are listed below:
 
 ##### The `get_chats` method
 
-Given a dataframe, the function accepts a `chat_name` argument, which can be a string or a list:
+This method filters the desired chats from the dataframe, returning a new one.
+
+Given a `dataframe`, the function accepts a `chat_name` argument, which can be a string or a list:
 + If *chat_name* is a string, a dataframe with all entries from the single chat whose name the string identifies will be returned.
 + If *chat_name* is a list, the entries from all chats corresponding to the names in the list will be returned. The result can be returned either:
   - as a dictionary mapping the names to dataframes of each chat if `return_as_dict = True`;
   - or a single dataframe like the original one if `return_as_dict = False`.
 
+#### The `get_columns` method
+
+This method filters the desired features (columns) from the dataframe, returning a new one (or more).
+
+Given a `dataframe`, the function accepts a `features` argument, wich can be a string, a list of strings, or a list of lists:
++ If _features_ is a string, the single column corresponding to the string will be returned;
++ If _features_ is a list of strings, a dataframe with only the features identified by the strings will be returned.;
++ If _features_ is a list of lists, a dataframe will be returned for each sublist, with the features identified by that sublist.
+
+#### The `get_types` method
+
+This method filters the desired types of messages from the dataframe, returning a new one.
+
+Given a `dataframe`, the function accepts a `types` argument, wich can be a string or a list. In addition, a `remove` argument can be set to _True_, so the _types_ specified will be __removed__ from the dataframe.
++ If _types_ is a string and _remove_ is false, only the entries with the specified type will be in the dataframe returned, otherwise these entries will be removed.
++ If _types_ is a list of strings and _remove_ is false, a dataframe with all the entries whose types are in the _types_ list will be returned. If _remove_ is set to true, these entries will be removed from the resulting dataframe.
+  - A *return_as_dict* argument can be set to _True_ so the result will be returned as a dictionary mapping each _type_ to a dataframe wich contains only entries from that type. This is not possible if _remove_ is also _True_.
+  
 
 ~ _work in progress_
 
