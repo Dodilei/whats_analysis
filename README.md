@@ -1,7 +1,7 @@
 # whats_analysis
 Read and analyse Whatsapp chats
 
-## 0. Prerequisites
+## Prerequisites
 
 All chat .txt files must be placed inside the [`Chat`](./Chats/ "Chat folder") folder (to get them, use the "export chat" option from whatsapp)
 
