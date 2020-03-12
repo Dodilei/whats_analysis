@@ -95,7 +95,7 @@ This method filters the desired features (columns) from the dataframe, returning
 
 Given a `dataframe`, the function accepts a `features` argument, wich can be a string, a list of strings, or a list of lists:
 + If _features_ is a string, the single column corresponding to the string will be returned;
-+ If _features_ is a list of strings, a dataframe with only the features identified by the strings will be returned.;
++ If _features_ is a list of strings, a dataframe with only the features identified by the strings will be returned;
 + If _features_ is a list of lists, a dataframe will be returned for each sublist, with the features identified by that sublist.
 
 #### The `get_types` method
@@ -103,7 +103,9 @@ Given a `dataframe`, the function accepts a `features` argument, wich can be a s
 This method filters the desired types of messages from the dataframe, returning a new one.
 
 Given a `dataframe`, the function accepts a `types` argument, wich can be a string or a list. In addition, a `remove` argument can be set to _True_, so the _types_ specified will be __removed__ from the dataframe.
+
 + If _types_ is a string and _remove_ is false, only the entries with the specified type will be in the dataframe returned, otherwise these entries will be removed.
+
 + If _types_ is a list of strings and _remove_ is false, a dataframe with all the entries whose types are in the _types_ list will be returned. If _remove_ is set to true, these entries will be removed from the resulting dataframe.
   - A *return_as_dict* argument can be set to _True_ so the result will be returned as a dictionary mapping each _type_ to a dataframe wich contains only entries from that type. This is not possible if _remove_ is also _True_.
   
