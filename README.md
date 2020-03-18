@@ -115,9 +115,20 @@ This method reshapes the dataframe so that the entries are gouped by a new time 
 
 Given a `dataframe`, the function accepts:
 
-+ A `bin_size` argument, wich specifies the new time resolution. This argument must be a tuple of two elements. The _second_ element specifies the unit of time, it can be: "minutes", "hours", "days", "weeks", "months" or "years". The _first_ element is a positive integer wich specifies the bin size, using the unit chosen.
++ A `bin_size` parameter, wich specifies the new time resolution. This argument must be a tuple of two elements. The _second_ element specifies the unit of time, it can be: "minutes", "hours", "days", "weeks", "months" or "years". The _first_ element is a positive integer wich specifies the bin size, using the unit chosen.
 
-+ A `combine` argument, if it is set to _False_ the dataframe size doesn't change, all the entries stay the same but with a new time identity. If it is _True_, all the entries corresponding to a single time bin will be merged.
++ A `keep_origin_time` paramenter, it chooses whether the dataframe's _Time_ column will be replaced with the new _bin_ feature or both of the features will be present in the new dataframe.
+
++ A `label` parameter, which chooses the way _bin_ entries will be presented. The choices are: _left_, _mid_, _right_, representing wich timestamp from the bin range will identify that bin. If the parameter is _None_, _bin_ entries will stay as time ranges.
+
++ A `combine` parameter, if it is set to _False_ the dataframe size doesn't change, all the entries stay the same but with a new time bin feature. If it is _True_, all the entries corresponding to a single time bin will be merged.
+
++ A `keep_size` parameter, used when _combine_ is set. When the parameter is _True_, the dataframe will mantain it's shape, _combine_d features will be repeated, other features will stay as they are. If _False_, all features must be _combine_d, and the shape of the dataframe changes, all entries in the same bin are merged into one.
+
++ A `features` parameter, used when _combine_ is set, can be the string "all", or a list of _features_. Features in the list (or all features) will be _combine_d, those not in the list will not be changed. This parameter can ommit some features if *keep_size* is _True_, otherwise all features must be _combine_d.
+
++ The parameters `method_cat` and `method_scalar` are not yet implemented in the function.
+
 
 ~ _work in progress_
 
