@@ -123,9 +123,9 @@ Given a `dataframe`, the function accepts:
 
 + A `combine` parameter, if it is set to _False_ the dataframe size doesn't change, all the entries stay the same but with a new time bin feature. If it is _True_, all the entries corresponding to a single time bin will be merged.
 
-+ A `keep_size` parameter, used when _combine_ is set. When the parameter is _True_, the dataframe will mantain it's shape, _combine_d features will be repeated, other features will stay as they are. If _False_, all features must be _combine_d, and the shape of the dataframe changes, all entries in the same bin are merged into one.
++ A `keep_size` parameter, used when _combine_ is set. When the parameter is _True_, the dataframe will mantain it's shape, combined features will be repeated, other features will stay as they are. If _False_, all features must be combined, and the shape of the dataframe changes, all entries in the same bin are merged into one.
 
-+ A `features` parameter, used when _combine_ is set, can be the string "all", or a list of _features_. Features in the list (or all features) will be _combine_d, those not in the list will not be changed. This parameter can ommit some features if *keep_size* is _True_, otherwise all features must be _combine_d.
++ A `features` parameter, used when _combine_ is set, can be the string "all", or a list of _features_. Features in the list (or all features) will be combined, those not in the list will not be changed. This parameter can ommit some features if *keep_size* is _True_, otherwise all features must be combined.
 
 + The parameters `method_cat` and `method_scalar` are not yet implemented in the function.
 
