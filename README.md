@@ -111,7 +111,9 @@ Given a `dataframe`, the function accepts a `types` argument, wich can be a stri
   
 #### The `make_time_bins` method
 
-This method reshapes the dataframe so that the entries are gouped by a new time resolution. The default time resolution from WhatsApp is 1 minute.
+This method reshapes the dataframe so that the entries are gouped by a new time resolution. This is useful as it provides more flexibility when creating graphs and processing the data.
+
+The default time resolution from WhatsApp is 1 minute.
 
 Given a `dataframe`, the function accepts:
 
@@ -120,6 +122,8 @@ Given a `dataframe`, the function accepts:
 + A `keep_origin_time` paramenter, it chooses whether the dataframe's _Time_ column will be replaced with the new _bin_ feature or both of the features will be present in the new dataframe.
 
 + A `label` parameter, which chooses the way _bin_ entries will be presented. The choices are: _left_, _mid_, _right_, representing wich timestamp from the bin range will identify that bin. If the parameter is _None_, _bin_ entries will stay as time ranges.
+
++ A `bin_as_label` parameter to set if _bins_ will be stored as labels (defined above) or as the default representation of python and pandas.
 
 + A `combine` parameter, if it is set to _False_ the dataframe size doesn't change, all the entries stay the same but with a new time bin feature. If it is _True_, all the entries corresponding to a single time bin will be merged.
 
