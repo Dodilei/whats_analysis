@@ -1,0 +1,23 @@
+body {
+	background-color: #0c1b24;
+	font-family: sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #b8b8b8
+}
+
+#react-select-4--value > div.Select-value {
+	background-color: black;
+}
+
+.column {
+	float: left;
+	width: 50%;
+}
+
+.row::after {
+	content: "";
+	display: table;
+	clear: both;
+}
