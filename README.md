@@ -123,8 +123,6 @@ Given a `dataframe`, the function accepts:
 
 + A `label` parameter, which chooses the way _bin_ entries will be presented. The choices are: _left_, _mid_, _right_, representing wich timestamp from the bin range will identify that bin. If the parameter is _None_, _bin_ entries will stay as time ranges.
 
-+ A `bin_as_label` parameter to set if _bins_ will be stored as labels (defined above) or as the default representation of python and pandas.
-
 + A `combine` parameter, if it is set to _False_ the dataframe size doesn't change, all the entries stay the same but with a new time bin feature. If it is _True_, all the entries corresponding to a single time bin will be merged.
 
 + A `keep_size` parameter, used when _combine_ is set. When the parameter is _True_, the dataframe will mantain it's shape, combined features will be repeated, other features will stay as they are. If _False_, all features must be combined, and the shape of the dataframe changes, all entries in the same bin are merged into one.
