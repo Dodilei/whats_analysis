@@ -122,14 +122,17 @@ def full_organize(dataframe, features, chats, types, remove = False, return_as_d
       
 def make_time_bins(dataframe, bin_size = (1, "days"), combine = True,
                    features = "all", method_scalar = "sum", method_cat = "add",
-                   keep_size = True, keep_orig_time = True,
-                   bin_as_label = False, label = "left"):
+                   keep_size = True, keep_origin_time = True, label = None):
     
     dataframe = dataframe.copy()
     
-    labels = {"left": lambda x: x.left, "right": lambda x: x.right,
-              "mid": lambda x: x.mid}
-    bin_label = labels[label]
+    if label:
+        bin_as_label = True
+        labels = {"left": lambda x: x.left, "right": lambda x: x.right,
+                  "mid": lambda x: x.mid}
+        bin_label = labels[label]
+    else:
+        bin_as_label = False
     
     cat = ["object", "category", "bool"]
     
@@ -150,7 +153,7 @@ def make_time_bins(dataframe, bin_size = (1, "days"), combine = True,
         else:
             new_series = dataframe["bin"]
         
-        if keep_orig_time:
+        if keep_origin_time:
             
             dataframe["bin"] = new_series
             return dataframe
@@ -177,7 +180,7 @@ def make_time_bins(dataframe, bin_size = (1, "days"), combine = True,
             else:
                 new_series = dataframe["bin"]
             
-            if keep_orig_time:   
+            if keep_origin_time:   
                 new_df["time"] = dataframe["time"]
                 new_df["bin"] = new_series
     
