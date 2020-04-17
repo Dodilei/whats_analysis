@@ -8,8 +8,10 @@ Created on Sun Jan 19 13:56:29 2020
 
 import pandas as pd
 
-def get_chats(dataframe, chat_name, return_as_dict = False):
+def get_chats(dataframe, chat_name = None, return_as_dict = False):
     
+    if chat_name == None: chat_name = dataframe.chat.unique()
+
     if type(chat_name) == str:
         
         if return_as_dict:
@@ -95,6 +97,7 @@ def full_organize(dataframe, features, chats, types, remove = False, return_as_d
     if type(return_as_dict) == dict: 
         return_as_dict = (return_as_dict["chat"], return_as_dict["type"])
     
+    if chats == "all": chats = None
     data = get_chats(dataframe, chats, return_as_dict[0])
     
     if return_as_dict[0]:
