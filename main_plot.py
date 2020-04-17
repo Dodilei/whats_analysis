@@ -14,87 +14,101 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import organize as org
 
+from plotting_resources import graph_area
 
-app = dash.Dash(__name__, external_stylesheets = ['$PROJECTS/whats_analysis/stylesheet.css'])
+dataframe = pd.read_csv("./results/full_dataframe.csv", parse_dates = ["time"])
 
+data = org.full_organize(dataframe,
+                         ["time", "raw_size", "type",
+                          "who_sent", "emotes"],
+                         "all",
+                         "trash", remove = True,
+                         return_as_dict = {"chat": True, "type": False}
+                         )
 
-graph_area1 = [
-	dcc.Dropdown(
-		options=[
-			{"label": "Chat1", "value": 1},
-			{"label": "Chat2", "value": 2},
-			{"label": "Chat3", "value": 3},
-			{"label": "Chat4", "value": 4},
-			],
-		value=[1,2],
-		multi=True)
-	]
+names = data.keys()
+chat_options = [{"label": name, "value": i} for i, name in enumerate(names)]
 
-graph_area2 = [
-	
-	html.Div(className = "column", children=[
-		
-		dcc.RadioItems(id = "rd1",
-			options=[
-				{"label": "Chat1", "value": 1},
-				{"label": "Chat2", "value": 2},
-				{"label": "Chat3", "value": 3},
-				{"label": "Chat4", "value": 4},
-				],
-			value = 1
-		)]
-	),
+#%%
 
-	html.Div(className = "column", children=[
-		
-		dcc.RadioItems(id = "rd2",
-			options=[
-				{"label": "Chat1", "value": 1},
-				{"label": "Chat2", "value": 2},
-				{"label": "Chat3", "value": 3},
-				{"label": "Chat4", "value": 4},
-				],
-			value = 2
-		)]
-	)
-]
-
+app = dash.Dash(__name__)
 
 app.layout = html.Div(id="main", children=[
 	
-	html.H1(children="Title", style={
+	html.Div(id = "hidden", style={"display": "none"}),
+	
+	html.H2(children="Whats Analysis", style={
 		"textAlign": "center"
 		
 		}),
 	
-	html.Label("Graph type"),
+	html.Div(
+		style = {
+			"paddingBottom": "30px"
+			},
+		id = "graph_choice_area",
+		children=[
+		
+		html.H4("Graph type", style = {"marginBlockEnd": "5px"}),
+		
+		dcc.Dropdown(
+			className = "contrast",
+			id = "graph_type_choice_drop",
+			options=[
+				{"label": "Absolute", "value": "ABS"},
+				{"label": "Duality", "value": "DUA"},
+				{"label": "Percent", "value": "PER"}
+				],
+			value = "ABS"),
+		]),
 	
-	dcc.Dropdown(
-		id = "graph_choice",
-		options=[
-			{"label": "Absolute", "value": "ABS"},
-			{"label": "Duality", "value": "DUA"},
-			{"label": "Percent", "value": "PER"}
-			],
-		value = "ABS"),
+	html.Div(id="main_graph_area", children=[
+		*graph_area("AD", chat_options)
+		]),
 	
-	html.Div(id="main_graph_area", className = "row")
-	
+	html.H3(id = "testing")
 	])
 
 @app.callback(
 	Output(component_id="main_graph_area", component_property="children"),
-	[Input(component_id="graph_choice", component_property="value")]
+	[Input(component_id="graph_type_choice_drop", component_property="value")]
 	)
 def update_main_area(choice):
 	
 	if choice == "ABS":
-		return graph_area1
+		return graph_area("AD", chat_options)
 	elif choice == "DUA":
-		return graph_area2
+		return graph_area("RL", chat_options) #wrong
+	elif choice == "PER":
+		return graph_area("RD", chat_options)
 	else:
 		return None
 
 
+#MAKE ONE FOR EACH, i dont care
+@app.callback(
+	Output(component_id="hidden", component_property="children"),
+	[
+    Input(component_id="graph_chats_choice", component_property="value")]
+	)
+def update_graph(chat_choices):
+
+	if type(chat_choices) == int:
+		@app.callback(
+			Output(component_id="graph_chats_choice_label", component_property="children"),
+			[
+			 Input(component_id="graph_chats_choice2", component_property="value")
+			]
+			)
+		def att_label2(new_choices, chat_choices = chat_choices):
+			
+			chat_choices = [chat_choices]+[new_choices]
+			
+			return str(chat_choices)
+	
+	else:
+		return str(chat_choices)
+		
+		
 if __name__ == '__main__':
     app.run_server(debug=True)
