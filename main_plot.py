@@ -14,7 +14,7 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import organize as org
 
-from plotting_resources import graph_area
+from plotting_resources import graph_area, GA_Absolute_Default, GA_Relative_Limited
 
 dataframe = pd.read_csv("./results/full_dataframe.csv", parse_dates = ["time"])
 
@@ -31,12 +31,10 @@ chat_options = [{"label": name, "value": i} for i, name in enumerate(names)]
 
 #%%
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions = True)
 
 app.layout = html.Div(id="main", children=[
-	
-	html.Div(id = "hidden", style={"display": "none"}),
-	
+
 	html.H2(children="Whats Analysis", style={
 		"textAlign": "center"
 		
@@ -63,11 +61,13 @@ app.layout = html.Div(id="main", children=[
 		]),
 	
 	html.Div(id="main_graph_area", children=[
-		*graph_area("AD", chat_options)
+		*graph_area("RD", chat_options)
 		]),
 	
 	html.H3(id = "testing")
 	])
+
+GA = GA_Absolute_Default(chat_options)
 
 @app.callback(
 	Output(component_id="main_graph_area", component_property="children"),
@@ -76,39 +76,20 @@ app.layout = html.Div(id="main", children=[
 def update_main_area(choice):
 	
 	if choice == "ABS":
-		return graph_area("AD", chat_options)
+		GA = GA_Absolute_Default(chat_options)
+		return GA.component()
 	elif choice == "DUA":
-		return graph_area("RL", chat_options) #wrong
+		GA = GA_Relative_Limited(chat_options)
+		return GA.component() #wrong
 	elif choice == "PER":
 		return graph_area("RD", chat_options)
 	else:
 		return None
 
 
-#MAKE ONE FOR EACH, i dont care
-@app.callback(
-	Output(component_id="hidden", component_property="children"),
-	[
-    Input(component_id="graph_chats_choice", component_property="value")]
-	)
-def update_graph(chat_choices):
-
-	if type(chat_choices) == int:
-		@app.callback(
-			Output(component_id="graph_chats_choice_label", component_property="children"),
-			[
-			 Input(component_id="graph_chats_choice2", component_property="value")
-			]
-			)
-		def att_label2(new_choices, chat_choices = chat_choices):
-			
-			chat_choices = [chat_choices]+[new_choices]
-			
-			return str(chat_choices)
+@app.callback(*GA.callback_parameters())
+def call_(inp):
+	return GA.callback_func(inp)
 	
-	else:
-		return str(chat_choices)
-		
-		
 if __name__ == '__main__':
     app.run_server(debug=True)
