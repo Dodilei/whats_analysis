@@ -1,15 +1,17 @@
-/__pycache__
-/.spyproject
+/whats_analysis/__pycache__
+.spyproject
 
-/Chats/*.txt
-!/Chats/empty.txt
+/whats_analysis/Chats/*.txt
+!/whats_analysis/Chats/empty.txt
 
-/results/*
-!/results/empty.txt
+/whats_analysis/results/*
+!/whats_analysis/results/empty.txt
 
-/large/*
-!/large/empty.txt
+/whats_analysis/large/*
+!/whats_analysis/large/empty.txt
 
-/resources/*
-!/resources/message_types.txt
-!/resources/unicode\ symbols
+/whats_analysis/resources/*
+!/whats_analysis/resources/message_types.txt
+!/whats_analysis/resources/unicode\ symbols
+
+/wa_web/node_modules
