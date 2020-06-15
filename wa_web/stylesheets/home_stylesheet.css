@@ -1,4 +1,7 @@
-#readme {
-    width: 100%;
-    height: 100%;
+#text {
+    padding-top: 2rem;
+    font-size: 150%;
+    font-family: 'News Cycle', sans-serif;
+    text-align: center;
+    
 }
