@@ -15,3 +15,6 @@
 !/whats_analysis/resources/unicode\ symbols
 
 /wa_web/node_modules
+!/wa_web/node_modules/showdown/dist/showdown.min.js
+
+*.code-workspace
