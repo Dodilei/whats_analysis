@@ -18,3 +18,8 @@
 !/wa_web/node_modules/showdown/dist/showdown.min.js
 
 *.code-workspace
+
+_temp/
+*/_temp
+
+/wa_desktop/node_modules
