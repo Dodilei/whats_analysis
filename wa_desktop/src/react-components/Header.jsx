@@ -6,39 +6,43 @@ class Header extends React.Component {
 
     constructor(props) {
         super(props);
-        this.highlight = {
-            home: false,
-            setup: false,
-            info: false,
-            graphs: false
-        }
-        this.highlight[props.highlight] = true;
 
         this.state = {
-            Page: make_page('home'),
+            current_page: props.startPage,
+            Page: make_page(props.startPage),
         };
 
         this.changePage = this.changePage.bind(this);
-    }
+    };
 
-    changePage(e, identifier) {
-        return null
-    }
+    changePage(e) {
+        let target = e.currentTarget.getAttribute("href").slice(1);
+        this.setState({
+            current_page: target,
+            Page: make_page(target)
+        });
+    };
+
+    setHighlight(identifier) {
+        if (this.state.current_page === identifier) {
+            return "highlight-span";
+        };
+    };
 
     render() {
         return (
             [<div id="header">
-                <a id="logo" href="#" onClick={this.changePage('home')}>Whats Analysis
+                <a id="logo" href="#home" onClick={this.changePage}>Whats Analysis
                 </a>
                 <nav id="navbar">
-                    <a class="nav-button" href="#" onClick={this.changePage('home')} id="nav-setup">Setup
-                    <span id={this.highlight["setup"] ? "highlight" : "no-highlight"}></span>
+                    <a className="nav-button" href="#setup" onClick={this.changePage} id="nav-setup">Setup
+                    <span id={this.setHighlight("setup")}></span>
                     </a>
-                    <a class="nav-button" href="#" onClick={this.changePage('home')} id="nav-info">Info
-                    <span id={this.highlight["info"] ? "highlight" : "no-highlight"}></span>
+                    <a className="nav-button" href="#info" onClick={this.changePage} id="nav-info">Info
+                    <span id={this.setHighlight("info")}></span>
                     </a>
-                    <a class="nav-button" href="#" onClick={this.changePage('home')} id="nav-graph">Graph
-                    <span id={this.highlight["graphs"] ? "highlight" : "no-highlight"}></span>
+                    <a className="nav-button" href="#graphs" onClick={this.changePage} id="nav-graph">Graphs
+                    <span id={this.setHighlight("graphs")}></span>
                     </a>
                 </nav>
                 <button id="settings-button">
@@ -46,8 +50,8 @@ class Header extends React.Component {
                 </button>
             </div>,
             <this.state.Page />]
-        )
-    }
-}
+        );
+    };
+};
 
 export default Header;
