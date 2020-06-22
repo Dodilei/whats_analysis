@@ -5,6 +5,8 @@ class Setup extends React.Component {
     constructor(props) {
         super(props);
 
+        this.changeVisible = this.changeVisible.bind(this);
+
         this.state = {
             visible: "guide"
         };
@@ -26,15 +28,35 @@ class Setup extends React.Component {
                     </ul>
                 </p>
             </div>
+            <div id="setup-button-container">
+                <button id="setup-button" onClick={this.changeVisible}>
+                    Start Import
+                </button>
+            </div>
             </div>
         );
 
+        this.importHTML = (
+            <p>soon</p>
+        )
+
         this.modes = {
-            guide: this.guideHTML
+            guide: this.guideHTML,
+            import: this.importHTML
         };
     };
 
-    
+    changeVisible() {
+        if (this.state.visible === "guide") {
+            this.setState(
+                { visible: "import" }
+            );
+        } else {
+            this.setState(
+                { visible: "guide" }
+            );
+        };
+    };
 
     render() {
         return (

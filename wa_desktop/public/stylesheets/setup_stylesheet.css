@@ -11,3 +11,21 @@
     margin-left: 2%;
     font-family: 'Titillium Web', sans-serif;
 }
+
+#setup-button-container {
+    margin: 3% 2%;
+    max-width: 20%;
+}
+
+#setup-button {
+    background-color: rgb(0, 147, 184);
+    font-size: 1.5rem;
+    color: gainsboro;
+    padding: 5%;
+    border: 2px solid rgb(0, 61, 153);
+    border-radius: 1.5px;
+}
+
+#setup-button:hover {
+    background-color:  rgb(0, 88, 110);
+}

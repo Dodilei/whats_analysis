@@ -2,6 +2,8 @@ import React from 'react';
 
 import make_page from './page';
 
+// add state of child pages (ex: setup) you can use props on make_page
+
 class Header extends React.Component {
 
     constructor(props) {
