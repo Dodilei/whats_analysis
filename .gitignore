@@ -20,6 +20,6 @@
 *.code-workspace
 
 _temp/
-*/_temp
+*/_temp.*
 
 /wa_desktop/node_modules
