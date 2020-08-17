@@ -13,6 +13,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
+    "braces": "^3.0.2",
     "showdown": "^1.9.1"
   }
 }
